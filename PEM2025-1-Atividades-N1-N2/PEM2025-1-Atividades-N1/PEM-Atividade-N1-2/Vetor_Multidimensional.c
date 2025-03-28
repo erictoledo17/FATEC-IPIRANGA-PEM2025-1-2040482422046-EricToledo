@@ -14,7 +14,20 @@
 #define NUM_RUAS 3
 #define NUM_POSICOES 10
 #define MAX_COD 20
-#define ARQUIVO_ESTOQUE "estoque.txt"
+
+typedef struct {
+    char codigo[MAX_COD];
+} Produto;
+
+Produto estoque[NUM_RUAS][NUM_POSICOES];
+
+void inicializarEstoque() {
+    for (int r = 0; r < NUM_RUAS; r++) {
+        for (int p = 0; p < NUM_POSICOES; p++) {
+            estoque[r][p].codigo[0] = '\0';  // Inicializa como uma string vazia
+        }
+    }
+}
 
 int ruaParaIndice(char rua) {
     switch (toupper(rua)) {
